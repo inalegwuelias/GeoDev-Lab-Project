@@ -1,0 +1,65 @@
+# Data Note
+
+This note describes the datasets identified for the project:
+"Which areas within 200 metres of natural drainage paths and low-lying land in Abuja Municipal Area Council (AMAC) have lost vegetation cover or gained built-up area since 2015, increasing flood risk?"
+
+Due to file size and limited data/bandwidth, full download, clipping to AMAC, and inspection in QGIS was not completed for all datasets by submission. Specifications below are drawn from each source's own published metadata and documentation. Fields marked "to confirm" require verification once each file is fully downloaded and opened.
+
+---
+
+## 1. Elevation (DEM)
+- **Source:** Copernicus GLO-30 Digital Elevation Model, distributed via OpenTopography — https://portal.opentopography.org/dataCatalog (search "Copernicus GLO-30")
+- **Geometry type:** Raster (single-band elevation surface)
+- **Number of features:** N/A (raster) — resolution is 30 metres (1 arc-second) per tile; exact pixel dimensions for the AMAC bounding box to confirm once downloaded
+- **Key attributes:** One elevation band, values in metres above sea level; based on TanDEM-X radar data (WorldDEM), edited for consistent water-body flattening and river flow per ESA/OpenTopography documentation
+- **Gaps / issues noticed:** This is a Digital Surface Model, not a bare-earth DEM — it includes buildings and vegetation height, not just terrain. This matters for the project since built-up areas will appear artificially "higher" than the ground beneath them. Worth noting as a limitation when identifying "low-lying land." No-data pixel check pending download.
+
+---
+
+## 2. Land Cover / Vegetation
+- **Source:** ESA WorldCover, or Sentinel-2 imagery via Copernicus Browser — https://esa-worldcover.org/en / https://dataspace.copernicus.eu/browser/
+- **Geometry type:** Raster
+- **Number of features:** N/A (raster) — WorldCover resolution is 10 metres per pixel; AMAC-area pixel dimensions to confirm once downloaded
+- **Key attributes:** Land cover class codes (per ESA WorldCover legend: e.g. tree cover, cropland, built-up, bare/sparse vegetation, grassland)
+- **Gaps / issues noticed:** ESA WorldCover is only available for 2020 and 2021 — there is no 2015 version. A true "since 2015" vegetation-loss comparison will require substituting Sentinel-2 (available from 2015 onward) or Landsat imagery for the earlier baseline, then comparing manually rather than using WorldCover's pre-classified product for both years. This is a real data-availability gap in the project, not an oversight.
+
+---
+
+## 3. Built-up Area Extent (multi-year)
+- **Source:** GRID3 NGA Settlement Extents (versioned releases: v3.0, v3.1, v4.0), Humanitarian Data Exchange — https://data.humdata.org/dataset/37a5d802-6867-4429-aaad-737b03e5ee8f
+- **Geometry type:** Polygon
+- **Number of features:** Dataset covers all of Nigeria at settlement-block level; AMAC-specific count to confirm once downloaded and clipped
+- **Key columns (per GRID3 codebook):** settlement type / degree of urbanisation, building count range, predicted false-positive flag, settlement status
+- **Gaps / issues noticed:** Each version is a single time-snapshot, not a time series with a built-in "year" field. To compare built-up growth since 2015, an older release (v3.0/v3.1, sourced closer to that period) needs to be downloaded alongside v4.0 and compared directly — the dataset does not do this comparison for you. Also, per GRID3's own notes, population figures were removed pending updated estimates, and boundary names are not official.
+
+---
+
+## 4. Settlement / Building Footprints (current)
+- **Source:** GRID3 NGA Settlement Extents v4.0 (as above), or OpenStreetMap buildings via QuickOSM (Overpass API) / Geofabrik — https://download.geofabrik.de/africa/nigeria.html
+- **Geometry type:** Polygon
+- **Number of features:** Not retrieved — download/query did not complete due to data/bandwidth limits. OSM building density is generally high in central Abuja districts (Wuse, Garki, Maitama) and sparser in outer AMAC wards, per general OSM Nigeria coverage patterns.
+- **Key columns (standard OSM tags):** `building` (type, e.g. yes/residential/commercial), `name` (if tagged)
+- **Gaps / issues noticed:** OSM building coverage is community-contributed and uneven across Nigeria; gaps are expected particularly toward AMAC's periphery. To confirm actual extent of gaps once loaded.
+
+---
+
+## 5. Ward Boundary (AMAC)
+- **Source:** GRID3 NGA Operational Ward Boundaries, Humanitarian Data Exchange — https://data.humdata.org/group/nga
+- **Geometry type:** Polygon
+- **Number of features:** AMAC contains 12 wards per FCT administrative records; exact count in the GRID3 file to confirm once opened, as GRID3 operational boundaries sometimes differ from official ward divisions
+- **Key columns (per GRID3 codebook):** ward name, LGA name, state name, ward code
+- **Gaps / issues noticed:** GRID3 explicitly states these operational boundaries "have not been fully validated by government officials" — ward names or shapes may not perfectly match official FCT records. To confirm once opened.
+
+---
+
+## 6. Drains / Canals (optional layer)
+- **Source:** OpenStreetMap, via QuickOSM (Overpass API, key=`waterway`) or Geofabrik Nigeria extract — https://download.geofabrik.de/africa/nigeria.html
+- **Geometry type:** Line
+- **Number of features:** Not retrieved — query/download did not complete. Based on general knowledge of OSM coverage in Nigeria, mapped drain/canal features in Abuja are known to be very sparse, since most drainage infrastructure is informal or unmapped.
+- **Key columns (standard OSM tags):** `waterway` (type, e.g. drain/canal/stream), `name` (if tagged)
+- **Gaps / issues noticed:** A near-empty or empty result for this layer is expected and is itself a meaningful finding — it's part of why this project uses terrain and land-cover as a proxy for drainage risk rather than relying on mapped drainage infrastructure, which doesn't exist in usable form for AMAC.
+
+---
+
+## Overall limitation
+Due to file size and data/connectivity constraints, full download, clipping to AMAC, and QGIS attribute-table inspection was not completed for all six datasets by submission. Specifications above are drawn from each source's published documentation rather than direct inspection of the AMAC-clipped data. Feature counts, exact column names, and gap-checking will be completed and corrected once full downloads are possible.
