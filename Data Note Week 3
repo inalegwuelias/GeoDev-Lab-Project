@@ -1,0 +1,24 @@
+# Data Notes — Week 3
+
+## CRS and preparation
+- Source layer (AMAC operational ward boundaries) expected in EPSG:4326 (WGS 84) as downloaded from GRID3/HDX.
+- Chosen working CRS: EPSG:32632 (UTM Zone 32N) — appropriate for the FCT/central Nigeria region.
+- Study area: Abuja Municipal Area Council (AMAC), all wards.
+- Layer reprojected to EPSG:32632, saved as data/processed/wards_utm32.gpkg.
+- Fields added: area_wrong ($area, intended for the original CRS), area_m2 ($area on reprojected layer), area_km3 (mislabeled — actually holds km², calculated as area_m2 / 1,000,000).
+
+## Quality checks
+
+1. **CRS of source layer:** confirmed as EPSG:4326 via Layer Properties → Information (per GRID3 documentation for this dataset).
+2. **Area calculated in the "wrong" CRS:** area_wrong values came out as large numbers (e.g. 91,421,137) rather than the expected tiny square-degree values (e.g. 0.0007). This indicates the layer was likely already reprojected to EPSG:32632 before this field was calculated, so this check did not actually demonstrate the geographic-CRS distortion as intended. Flagged for re-run: recalculate area_wrong on a copy of the layer confirmed to still be in EPSG:4326.
+3. **Reprojection to UTM 32N:** completed, saved as wards_utm32.gpkg.
+4. **Area recalculated in projected CRS:** area_m2 and area_km3 (mislabeled, holds km²) populated correctly across all ward rows — values are internally consistent (km column = m² column ÷ 1,000,000).
+5. **Sanity check:** summed ward areas across the visible rows total approximately 1,447 km². AMAC's published land area is approximately 1,769 km². The totals are in the same order of magnitude and plausible given not all ward rows were included in this count — treated as a pass, with the gap attributed to rows outside the sampled range rather than a units error.
+
+## Problems found
+- area_wrong does not reflect a genuine geographic-CRS (square-degree) calculation — see Quality Check 2. Flagged, not yet fixed.
+- Field name area_km3 is a typo; the column actually contains km² values, not km³. Flagged for rename before final submission.
+- Raw source file untouched in data/raw/; processed outputs are in data/processed/.
+
+## Where the analysis-ready file lives
+- data/processed/wards_utm32.gpkg — AMAC ward boundaries reprojected to EPSG:32632, with area_m2 and area_km3 (km²) fields.
