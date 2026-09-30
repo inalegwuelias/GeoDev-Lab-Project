@@ -25,3 +25,6 @@ OpenStreetMap's drainage/waterway coverage for AMAC turned out to be [very spars
 - Built-up area layers (multiple years) to identify construction encroachment within the buffer
 - Elevation (DEM) data to identify low-lying land, still not yet incorporated
 - Remaining datasets from Week 2 still need clipping and reprojecting, per prior feedback
+  
+## Additional data: buildings
+After the initial buffer analysis, building footprints for AMAC were obtained (via Overpass Turbo, OSM building data) and clipped/reprojected to match the drainage buffer analysis. Intersecting the buildings layer with the 200m drainage buffer shows [X] buildings currently sit within 200 metres of mapped drainage paths in AMAC — indicating direct, identifiable exposure to blocked or overflow-prone drainage lines, even before vegetation-loss or elevation data is incorporated.
