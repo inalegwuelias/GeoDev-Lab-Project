@@ -19,3 +19,6 @@ Vegetation/land-cover and elevation (DEM) layers are still needed to complete th
 
 ## Note on large files
 `buildings_amac_utm32.gpkg` and `buildings_in_buffer.gpkg` exceed GitHub's file size limit and are not committed to this repository. They were generated locally following the steps in this summary (OSM buildings via Overpass Turbo, clipped to AMAC, reprojected to EPSG:32632, intersected with the 200m drainage buffer). The resulting building-exposure count (see Month 1 result above) is derived from these files.
+
+## Month 2: development environment and early python
+Week 5: set up Python, VS code and terminal. hello.py runs.
