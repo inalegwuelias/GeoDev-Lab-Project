@@ -23,3 +23,4 @@ Vegetation/land-cover and elevation (DEM) layers are still needed to complete th
 ## Month 2: development environment and early python
 Week 5: set up Python, VS code and terminal. hello.py runs.
 Week 6: set up the project with uv and added pandas. check.py prints the pandas version.
+Week 7: analyse.py reads wards.csv, converts each area and classifies each ward.
