@@ -1,7 +1,7 @@
 fid,OBJECTID,country,iso3,state,statecode,lga,lga_alt_na,ward,ward_alt_n,ward_v1_gr,ward_in_gr,multipart_,source,date,area_sqkm,area_wrong,area _m2,area_km2,area_km3
 "1",3947,Nigeria,NGA,"FCT, Abuja",FC,Municipal Area Council,"Abuja Municipal, Amac, Municipal, Abuja Municipal Area Council",City Center 1,"City Centre, City Center-1, CITY CENTRAL",,1,1,CIESIN,2026-06-30,91,91421137.636,91421137.6347163,"91",91.4211376347163
 "2",3948,Nigeria,NGA,"FCT, Abuja",FC,Municipal Area Council,"Abuja Municipal, Amac, Municipal, Abuja Municipal Area Council",Garki 1,"Garki, Garki-1, Gariki",,1,1,CIESIN,2026-06-30,78,78449497.261,78449497.2613967,"78",78.4494972613967
-"3",3949,Nigeria,NGA,"FCT, Abuja",FC,Municipal Area Council,"Abuja Municipal, Amac, Municipal, Abuja Municipal Area Council",Gui,,,1,1,CIESIN,2026-06-30,251,250954135.08,250954135.080132,"251",250.954135080132
+"3",3949,Nigeria,NGA,"FCT, Abuja",FC,Municipal Area Council,"Abuja Municipal, Amac, Municipal, Abuja Municipal Area Council",Gui ,,,1,1,CIESIN,2026-06-30,251,250954135.08,250954135.080132,"251",250.954135080132
 "4",3950,Nigeria,NGA,"FCT, Abuja",FC,Municipal Area Council,"Abuja Municipal, Amac, Municipal, Abuja Municipal Area Council",Gwagwa,,,1,1,CIESIN,2026-06-30,57,57284229.525,57284229.5249803,"57",57.2842295249803
 "5",3951,Nigeria,NGA,"FCT, Abuja",FC,Municipal Area Council,"Abuja Municipal, Amac, Municipal, Abuja Municipal Area Council",Gwarinpa,Gwarimpa,,1,1,CIESIN,2026-06-30,139,138715809.834,138715809.834173,"139",138.715809834173
 "6",3952,Nigeria,NGA,"FCT, Abuja",FC,Municipal Area Council,"Abuja Municipal, Amac, Municipal, Abuja Municipal Area Council",Jiwa,,,1,1,CIESIN,2026-06-30,117,116929602.053,116929602.053138,"117",116.929602053138
