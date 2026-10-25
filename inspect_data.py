@@ -1,6 +1,7 @@
 import csv
 
 
+
 def inspect_column(filename, column):
     with open(filename, encoding="utf-8-sig") as f:
         rows = list(csv.DictReader(f))
