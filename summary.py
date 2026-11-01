@@ -26,7 +26,6 @@ def summarise(values):
         "average": sum(values) / len(values),
     }
 
-
 def summarise_all(filename, columns):
     rows = read_rows(filename)
     report = {}
