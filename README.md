@@ -20,12 +20,15 @@ Vegetation/land-cover and elevation (DEM) layers are still needed to complete th
 ## Note on large files
 `buildings_amac_utm32.gpkg` and `buildings_in_buffer.gpkg` exceed GitHub's file size limit and are not committed to this repository. They were generated locally following the steps in this summary (OSM buildings via Overpass Turbo, clipped to AMAC, reprojected to EPSG:32632, intersected with the 200m drainage buffer). The resulting building-exposure count (see Month 1 result above) is derived from these files.
 
-## Month 2: development environment and early python
-Week 5: set up Python, VS code and terminal. hello.py runs.
-Week 6: set up the project with uv and added pandas. check.py prints the pandas version.
-Week 7: analyse.py reads wards.csv, converts each area and classifies each ward.
-Week 8: inspect_data.py summarises area_km2 and area_km3 in my Drainage buffer data.
-Week 9: summary.py refactors my inspection into functions and summarises area_km2 and area_km3 for my AMAC ward data.
+## Month 2: development environment and early Python
+
+- Week 5: set up Python, VS Code and the terminal. hello.py runs. ([hello.py](hello.py), [screenshot](screenshots/week5.png))
+- Week 6: set up the project with uv and added pandas. check.py prints the pandas version. ([check.py](check.py), [pyproject.toml](pyproject.toml), [screenshot](screenshots/week6.png))
+- Week 7: analyse.py reads wards.csv, converts each area and classifies each ward. ([analyse.py](analyse.py), [wards.csv](wards.csv), [screenshot](screenshots/week7.png))
+- Week 8: inspect_data.py summarises area_km2 and area_km3 in my AMAC ward boundaries data. ([inspect_data.py](inspect_data.py), [amac_wards.csv](amac_wards.csv), [screenshot](screenshots/week8.png))
+- Week 9: summary.py refactors my inspection into functions and summarises area_km2 and area_km3 for my AMAC ward data. ([summary.py](summary.py), [screenshot](screenshots/week9.png))
+
+My Month 2 capstone (summary.py) runs on amac_wards.csv, which is the attribute table from my Month 1 AMAC ward layer.
 
 ## Month 2 reflection
-(3–4 sentences, in your own words)
+(your 3–4 sentences, in your own words)
