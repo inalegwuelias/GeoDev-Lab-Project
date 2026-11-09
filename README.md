@@ -32,3 +32,7 @@ My Month 2 capstone (summary.py) runs on amac_wards.csv, which is the attribute 
 
 ## Month 2 reflection
 (your 3–4 sentences, in your own words)
+
+## Month 3: GeoSpatial python and automation 
+
+- Week 10: Geopandas. Loaded, checked, joined and mapped my wards data in code.
