@@ -36,3 +36,4 @@ My Month 2 capstone (summary.py) runs on amac_wards.csv, which is the attribute 
 ## Month 3: GeoSpatial python and automation 
 
 - Week 10: Geopandas. Loaded, checked, joined and mapped my wards data in code.
+- Week 11: CRS and spatial operations. Reprojected to EPSG:32632 and measured the share of each AMAC ward within 200 m of mapped drains.
